@@ -18,10 +18,21 @@ namespace FunctionApp34
         {
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             var data = JsonConvert.DeserializeObject<User>(requestBody);
+            if(data is null)
+            {
 
-            string responseMessage = $"Hello {Name}";
+            return new OkObjectResult("Please add valid user"); 
+            }
+            UserContext userContext = new UserContext();
+            User user = new User();
+            user.UserName = data.UserName;
 
-            return new OkObjectResult(responseMessage);
+            
+
+           
+        
+
+            return new OkObjectResult("");
         }
     }
 }
