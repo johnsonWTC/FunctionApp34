@@ -14,7 +14,7 @@ namespace FunctionApp34
     {
         [FunctionName("Function1")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req)
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "{Name}")] HttpRequest req, string Name)
         {
          
 
