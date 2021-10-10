@@ -16,8 +16,6 @@ namespace FunctionApp34
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "{Name}")] HttpRequest req, string Name)
         {
-         
-
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             dynamic data = JsonConvert.DeserializeObject(requestBody);
 
