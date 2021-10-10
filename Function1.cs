@@ -14,14 +14,13 @@ namespace FunctionApp34
     {
         [FunctionName("Function1")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "{Name}")] HttpRequest req, string Name)
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req)
         {
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             var data = JsonConvert.DeserializeObject<User>(requestBody);
-            if(data is null)
+            if (data is null)
             {
-
-            return new OkObjectResult("Please add valid user"); 
+                return new OkObjectResult("Please add valid user");
             }
             UserContext userContext = new UserContext();
             User user = new User();
