@@ -26,6 +26,8 @@ namespace FunctionApp34
             UserContext userContext = new UserContext();
             User user = new User();
             user.UserName = data.UserName;
+            userContext.Users.Add(user);
+            userContext.SaveChanges();
 
             
 
