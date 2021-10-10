@@ -27,7 +27,6 @@ namespace FunctionApp34
             user.UserName = data.UserName;
             userContext.Users.Add(user);
             userContext.SaveChanges();
-
             return new OkObjectResult($"{user.UserName} has been added");
         }
     }
