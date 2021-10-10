@@ -19,7 +19,7 @@ namespace FunctionApp34
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             dynamic data = JsonConvert.DeserializeObject(requestBody);
 
-            string responseMessage = "Hello johnson";
+            string responseMessage = $"Hello {Name}";
 
             return new OkObjectResult(responseMessage);
         }
