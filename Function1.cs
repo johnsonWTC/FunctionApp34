@@ -29,12 +29,7 @@ namespace FunctionApp34
             userContext.Users.Add(user);
             userContext.SaveChanges();
 
-            
-
-           
-        
-
-            return new OkObjectResult("");
+            return new OkObjectResult($"{user.UserName} has been added");
         }
     }
 }
